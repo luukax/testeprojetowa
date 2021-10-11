@@ -1,0 +1,105 @@
+{
+	"info": {
+		"_postman_id": "c6c13ed9-d1f0-4df9-83b6-e0dae7b1fe72",
+		"name": "login",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "login",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJhZG1pbkB3YXByb2plY3QuY29tLmJyIiwiZmlyc3ROYW1lIjoiV2FQcm9qZWN0IiwibGFzdE5hbWUiOiJBZG1pbiIsInJvbGVzIjpbInN5c0FkbWluIl0sInR5cGUiOjAsImV4cCI6MTYzMzY2MDM1NywiaWF0IjoxNjMzNjMxNTU3fQ.Kz7xy3F8pGT9_KQKXQEIEanKJ5du4aM5OweoypTWS7M",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\": \"admin@waproject.com.br\",\r\n\"password\": \"senha@1233\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://hml-wa-timesheet-api.waproject.com.br/admin/auth/login",
+					"protocol": "https",
+					"host": [
+						"hml-wa-timesheet-api",
+						"waproject",
+						"com",
+						"br"
+					],
+					"path": [
+						"admin",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "incluir registro ",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"teste de inclusão\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJhZG1pbkB3YXByb2plY3QuY29tLmJyIiwiZmlyc3ROYW1lIjoiV2FQcm9qZWN0IiwibGFzdE5hbWUiOiJBZG1pbiIsInJvbGVzIjpbInN5c0FkbWluIl0sInR5cGUiOjAsImV4cCI6MTYzMzY2NTI5NywiaWF0IjoxNjMzNjM2NDk3fQ.Qhz9GligpvMY971czFVH79fQ16n1ZOMWpfNqzLOYCCI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"date\": \"2021-10-07T17:12:15.659Z\",\r\n\"endHour\": \"2021-10-06T16:37:15.659Z\",\r\n\"observation\": \"teste de inclusão\",\r\n\"projectID\": 10,\r\n\"startHour\": \"2021-10-06T15:40:15.659Z\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://hml-wa-timesheet-api.waproject.com.br/web/record",
+					"protocol": "https",
+					"host": [
+						"hml-wa-timesheet-api",
+						"waproject",
+						"com",
+						"br"
+					],
+					"path": [
+						"web",
+						"record"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
